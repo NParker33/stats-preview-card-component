@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
+
+:root {
+    --main-bg: hsl(233, 47%, 7%);
+    --card-bg: hsl(244, 38%, 16%);
+    --accent: hsl(277, 64%, 61%);
+    --main-text: hsla(0, 0%, 100%, 0.75);
+    --stat-text: hsla(0, 0%, 100%, 0.6);
+    --main-font: 'Inter', sans-serif;
+    --stat-font: 'Lexend Deca', sans-serif;
+}
+
+/* reset defaults */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    min-height: 100vh;
+}
+
+main {
+    height: 100%;
+    background: var(--main-bg);
+    padding: 70px 25px;
+}
+
+/* custom styles */
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* base styles */
+
+.card {
+    background: var(--card-bg);
+    border-radius: 10px;
+}
+
+.hero {
+    width: 100%;
+    height: 220px;
+    background: url('assets/image-header-mobile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+
+.hero::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: hsla(277, 65%, 50%, .6);
+    border-radius: 10px 10px 0 0;
+}
+
+
+.content {
+    padding: 20px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.main-content {
+    color: var(--main-text);
+}
+
+.main-content h1 {
+    color: #fff;
+}
+
+.main-content p {
+    padding: 15px;
+    line-height: 1.6;
+}
+
+.main-content span {
+    color: var(--accent);
+}
+
+.stat {
+    margin: 20px;
+    text-transform: uppercase;
+}
+
+.stat h2 {
+    color: #fff;
+}
+
+.stat p {
+    color: var(--stat-text);
+    font-family: var(--stat-font);
+    font-size: .95rem;
+    margin: 5px;
+}
+
+/* mobile styles */
+@media screen and (min-width: 768px){
+    .card {
+        width: 75%;
+        display: grid;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    body {
+        height: 100vh;
+    }
+
+    .card {
+        width: clamp(850px, 90%, 1030px);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .content {
+        text-align: left;
+        padding: 50px;
+    }
+
+    .main-content h1 {
+        margin-left: 15px;
+    }
+
+    .main-content {
+        margin-bottom: 50px;
+    }
+
+    .hero {
+        grid-column: 2;
+        grid-row: 1;
+        height: 100%;
+    }
+
+    .hero,
+    .hero::before {
+        border-radius: 0 10px 10px 0;
+    }
+
+    .stats {
+        display: flex;
+    }
+
+    .stat p{
+        margin-left: 0;
+    }
+}
